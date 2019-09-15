@@ -1,0 +1,31 @@
+page-galleries {
+    a.image{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        img{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+    }
+    .close,.view{
+        position: absolute;
+        top:40%;
+        display: none;
+    }
+    .close{
+        left: 52%;
+    }
+    .view{
+        left: 10%;
+    }
+    .show:focus,.show:active,
+    .show:focus + .show,.show:active + .show {
+        display: block;
+    }
+    a.image:focus ~ .close,a.image:active ~ .close,
+    a.image:focus ~ .view,a.image:active ~ .view {
+        display: block;
+    }
+}

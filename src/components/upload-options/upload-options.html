@@ -1,0 +1,6 @@
+<ion-list class="popover">
+    <button mode="md" style="color: #185a9d;" ion-item *ngFor="let p of pages" (click)="dismissPopover(p)">
+        <ion-icon *ngIf="p.icon" color="secondColor"  [ios]="p.icon" [md]="p.icon" item-start></ion-icon>
+        {{p.title}}
+    </button>
+</ion-list>

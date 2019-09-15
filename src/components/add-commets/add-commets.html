@@ -1,0 +1,16 @@
+<div class="container">
+    <form [formGroup]="commentForm" (ngSubmit)="addComment()" class="form-custom" novalidate>
+        <ion-list class="list-item">
+            <ion-item>
+                <ion-textarea rows="3" autoGrow="true" mode="ios" tabindex="3" #i3 placeholder="Comment here..."
+                    formControlName="comment"></ion-textarea>
+            </ion-item>
+            <small *ngIf="commentForm.get('comment').errors && commentForm.get('comment').dirty">
+                <p color="danger" ion-text *ngIf="commentForm.get('comment').hasError('required')">Commet is
+                    required</p>
+            </small>
+            <button class="btn-comment" ion-button small float-right round type="submit"
+                [disabled]="commentForm.invalid">Commet</button>
+        </ion-list>
+    </form>
+</div>

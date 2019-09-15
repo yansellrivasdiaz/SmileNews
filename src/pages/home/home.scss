@@ -1,3 +1,14 @@
 page-home {
-
+    .news-image{
+        object-fit: cover;
+    }
+    .card-content{
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .title{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 }

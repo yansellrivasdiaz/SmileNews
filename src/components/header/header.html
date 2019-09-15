@@ -1,0 +1,29 @@
+<ion-toolbar color="secondColor" *ngIf="!openSearch">
+  <ion-buttons ion-button menuToggle icon-only start>
+    <button ion-button icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title class="title">{{title}}</ion-title>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="openSearch = !openSearch">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-buttons end>
+    <button ion-button icon-only (click)="presentPopover($event)">
+      <ion-icon name="person"></ion-icon>
+    </button>
+  </ion-buttons>
+
+</ion-toolbar>
+
+<ion-toolbar *ngIf="openSearch">
+  <ion-buttons mode="ios" start>
+    <button ion-button icon-only (click)="openSearch = !openSearch">
+      <ion-icon mode="md" name="arrow-round-back"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-searchbar end mode="ios" (ionInput)="getItems($event)"></ion-searchbar>
+</ion-toolbar>

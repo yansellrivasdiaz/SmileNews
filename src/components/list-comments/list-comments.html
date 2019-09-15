@@ -1,0 +1,14 @@
+<!-- Generated template for the ListCommentsComponent component -->
+<div class="custom-list">
+  
+  <div class="item" *ngFor="let comment of comments">
+    <ion-avatar>
+      <img *ngIf="comment.user" [src]="comment.user.avatar || '../../assets/imgs/reader.svg'">
+    </ion-avatar>
+    <div class="body">
+      <small>{{comment.user.fullname || ''}} . {{service.formatDate(comment.created_at)}}</small>
+      <p class="comment">{{comment.comment}}</p>
+    </div>
+  </div>
+
+</div>

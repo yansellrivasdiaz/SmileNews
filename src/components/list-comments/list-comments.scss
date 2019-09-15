@@ -1,0 +1,38 @@
+list-comments {
+    .custom-list{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        .item{
+            padding: 10px 5px;
+            margin:0;
+            border-top:1px solid rgba(165, 163, 163,0.5);
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            &:first-child{
+                margin-top:10px;
+            }
+            &:last-child{
+                border-bottom:1px solid rgba(165, 163, 163,0.5); 
+            }
+            ion-avatar{
+                padding:0;
+                margin:0;
+                img{
+                    border-radius: 50%;
+                }
+            }
+            .body{
+                small{
+                    line-height:1.5;
+                }
+                p{
+                    margin:3px 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

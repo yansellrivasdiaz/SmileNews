@@ -1,0 +1,118 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="secondColor">
+    <ion-title>
+      My Profile
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <span ion-text color="light" showWhen="ios">Cancel</span>
+        <ion-icon name="close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="top"></div>
+    <ion-avatar class="avartar">
+      <img [src]=" avatar || '../assets/imgs/reader.svg'" (click)="ZoonAvatar(avatar)">
+      <button type="button" [hidden]="changeInfo" ion-fab mini color="primary" class="add-image"
+        (click)="presentPopover($event)">
+        <ion-icon name="image"></ion-icon>
+      </button>
+    </ion-avatar>
+    <div class="info">
+
+      <div class="leyen" [hidden]="!changePassword || !changeInfo">
+        <small *ngIf="user && user.isAdmin">Administrator</small>
+        <h5>{{ user.fullname }}</h5>
+        <h5>{{ user.email }}</h5>
+        <h5>{{ user.phoneNumber }}</h5>
+        <h5>{{ formatDate(user.birthday) }}</h5>
+      </div>
+
+      <div class="base-form" [hidden]="changeInfo">
+        <form [formGroup]="changeInfoForm" class="form-custom" (ngSubmit)="updateInfo()" novalidate>
+          <ion-list class="list-item">
+            <ion-item>
+              <ion-input mode="ios" formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
+            </ion-item>
+            <small *ngIf="changeInfoForm.get('fullname').errors && changeInfoForm.get('fullname').dirty">
+              <p color="danger" ion-text *ngIf="changeInfoForm.get('fullname').hasError('required')">Fullname is
+                required</p>
+            </small>
+            <ion-item>
+              <ion-input mode="ios" formControlName="birthday" placeholder="00/00/0000" type="date"></ion-input>
+            </ion-item>
+            <small *ngIf="changeInfoForm.get('birthday').errors && changeInfoForm.get('birthday').dirty">
+              <p color="danger" ion-text *ngIf="changeInfoForm.get('birthday').hasError('required')">Birthday is
+                required
+              </p>
+            </small>
+            <ion-item>
+              <ion-input mode="ios" formControlName="phoneNumber" placeholder="Phone Number" type="tel"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button class="btn-save" [disabled]="changeInfoForm.invalid" ion-button color="secondColor" round full
+            type="submit">Save changes</button>
+        </form>
+      </div>
+
+      <div class="changePassword-form" [hidden]="changePassword">
+        <form [formGroup]="changePasswordForm" class="form-custom" (ngSubmit)="updatePassword()" novalidate>
+          <ion-list class="list-item">
+            <ion-item>
+              <ion-input mode="ios" formControlName="oldPassword" placeholder="Old Password" type="password">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input mode="ios" formControlName="password" placeholder="New Password" type="password"></ion-input>
+            </ion-item>
+            <small *ngIf="changePasswordForm.get('password').errors && changePasswordForm.get('password').dirty">
+              <p color="danger" ion-text *ngIf="changePasswordForm.get('password').errors?.required">Password is
+                required</p>
+              <p color="danger" ion-text *ngIf="changePasswordForm.get('password').hasError('pattern')">It is not a
+                strong
+                password</p>
+            </small>
+            <ion-item>
+              <ion-input mode="ios" formControlName="confirmPassword" placeholder="Confirm Password" type="password">
+              </ion-input>
+            </ion-item>
+            <small
+              *ngIf="changePasswordForm.get('confirmPassword').errors && changePasswordForm.get('confirmPassword').dirty">
+              <p color="danger" ion-text *ngIf="changePasswordForm.get('confirmPassword').hasError('required')">Confirm
+                Password
+                is required</p>
+              <p color="danger" ion-text *ngIf="changePasswordForm.get('confirmPassword').errors?.MatchPassword">
+                Password and
+                Confirm Password did not match</p>
+            </small>
+          </ion-list>
+          <button class="btn-save" [disabled]="changeInfoForm.invalid" ion-button color="secondColor" round full
+            type="submit">Reset Password</button>
+        </form>
+      </div>
+
+      <button hidden="true" [hidden]="changePassword && changeInfo" (click)="cancelEdition()" class="btn-save"
+        ion-button color="danger" round full type="button">Cancel</button>
+      <button class="float-button" [hidden]="!changePassword || !changeInfo" (click)="changeInfo = !changeInfo;updateInfoForm();" ion-fab
+        color="secondColor">
+        <ion-icon ios="md-create" md="md-create"></ion-icon>
+      </button>
+      <button class="float-button" [hidden]="!changePassword || !changeInfo" (click)="changePassword = !changePassword;"
+        ion-fab color="danger">
+        <ion-icon ios="ios-lock" md="ios-lock"></ion-icon>
+      </button>
+
+    </div>
+
+  </div>
+</ion-content>

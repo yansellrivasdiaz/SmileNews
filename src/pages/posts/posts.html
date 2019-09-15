@@ -1,0 +1,57 @@
+<ion-header>
+  <header title="Posts"></header>
+</ion-header>
+<ion-content>
+
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="presentModalAddNews()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+  <ion-list mode="ios">
+
+
+    <ion-item-sliding *ngFor="let posts of virtualNews">
+      <ion-item mode="ios">
+        <ion-thumbnail item-start>
+          <img [src]="posts.image" *ngIf="posts.image && posts.image != ''">
+        </ion-thumbnail>
+        <h2>{{posts.title}}</h2>
+        <p>{{posts.subtitle}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="info" (click)="showDetails(posts)">
+          <ion-icon ios="md-eye" md="md-eye"></ion-icon>
+        </button>
+        <button ion-button color="secondary" (click)="editPosts(posts)">
+          <ion-icon ios="md-create" md="md-create"></ion-icon>
+        </button>
+        <button ion-button color="danger" (click)="deletePost(posts)">
+          <ion-icon ios="md-trash" md="md-trash"></ion-icon>
+        </button>
+        <button ion-button color="primary" *ngIf="!posts.status" (click)="shareUnShare(posts)">
+          <ion-icon ios="md-share-alt" md="md-share-alt"></ion-icon>
+        </button>
+        <button ion-button color="warning" *ngIf="posts.status" (click)="shareUnShare(posts)">
+          <ion-icon ios="md-close" md="md-close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+
+
+
+
+  </ion-list>
+
+
+</ion-content>

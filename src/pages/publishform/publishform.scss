@@ -1,0 +1,78 @@
+page-publishform {
+    .form-custom{
+        box-sizing: border-box;
+        margin-top:5px;
+        margin-right: auto;
+        margin-left: auto;
+        padding:3px 3px;
+        width: 98%;
+        .news-header{
+            display: block;
+            width: 100%;
+            background-color: #6a737b;
+            position: relative;
+            margin-bottom: 15px;
+            .image{
+                width: 100%;
+                min-height: 130px;
+                object-fit: cover;
+            }
+            .add-image{
+                position: absolute;
+                z-index: 100;
+                bottom:-25px;
+                right: 0;
+            }
+        }
+        .card-mod{
+            box-shadow: none;
+            margin-left:auto;
+            margin-right: auto;
+            width: 100%;
+            padding:2px 10px;
+            .list-ios > .item-block:first-child,.list-ios > .item-block:last-child {
+                border-top:none;
+            }
+            .list-item{
+                padding:0;
+                padding-top: 5px;
+                ion-item{
+                    padding: 0;
+                    margin:0;
+                    width: 100%;
+                    border:none;
+                    .item-inner{
+                        padding:0;
+                    }                
+                    ion-input,ion-textarea{
+                        box-sizing: border-box;
+                        display: block;
+                        text-align: start;
+                        width: 100%;
+                        padding: 0rem .50rem;
+                        font-size: 1.3rem;
+                        font-weight: 400;
+                        color: #495057;
+                        background-color: #fff;
+                        background-clip: padding-box;
+                        border: 1px solid #ced4da;
+                        border-radius: .25rem;
+                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                        overflow: visible;
+                        &:focus,&:active{
+                            box-shadow: 0 1px 2px #007bff !important;
+                            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                        }
+                    }
+                }
+                small{
+                    width: 100%;
+                    text-align: center;
+                }
+                .btn-signup{
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

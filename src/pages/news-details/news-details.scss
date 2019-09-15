@@ -1,0 +1,31 @@
+page-news-details {
+    .news-image{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+    }
+    .news-title,.news-subtitle{
+        margin:0;
+        padding:3px 0;
+    }
+    .news-title{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+    }
+    .news-subtitle{
+        font-family: 'Times New Roman', Times, serif; 
+        padding:0;
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+    .share-content{
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        padding: 3px 0px;
+        .author-content{
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

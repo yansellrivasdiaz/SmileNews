@@ -1,0 +1,105 @@
+page-signin {
+    width: 100%;
+    margin:0;
+    .bg-content{    
+        background: linear-gradient(120deg,#43cea2,#185a9d);
+        width: 100%;
+        position: relative;
+        height: 100vh;
+        box-sizing: border-box;
+        margin:0;
+        .container-mod{
+            box-sizing: border-box;
+            background: transparent;
+            box-shadow: none;
+            margin:0;
+            margin-left:auto;
+            margin-right: auto;
+            margin-top:15px;
+            .api-title{
+                font-size: 20px;
+                color:whitesmoke;
+                display: block;
+                text-align: center;
+                text-shadow: 0 0px 5px rgba(0,0,0,1);
+                text-transform: uppercase;
+            }
+            .card-mod{
+                padding:10px 20px;
+                background-color: rgba(0,0,0,0.6);
+                box-sizing: border-box;
+                width: 100%;
+                .form-title{
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 20px;
+                    padding-bottom: 10px;
+                    color: #fff;
+                    font: 1.2em sans-serif;
+                }
+                .input-item{
+                    padding:0;
+                    margin:0;
+                    background-color: transparent;
+                 }
+                 ion-input,ion-textarea{
+                    padding: 0;
+                    margin: 0;
+                    box-sizing: border-box;
+                    display: block;
+                    text-align: start;
+                    width: 100%;
+                    padding: 0rem .50rem;
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                    background-color: rgba(255,255,255,0.3);
+                    background-clip: padding-box;
+                    color: #FFF;
+                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                    overflow: visible;
+                    &:focus,&:active{
+                        box-shadow: 0 1px 2px #007bff !important;
+                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                    }
+                }
+                .check-item{
+                    width: 100%;
+                    padding:0;
+                    margin:0;
+                    background-color: transparent;
+                }
+                .text-input-ios{
+                    padding-left: 10px;
+                    margin: 8px 8px 8px 0;
+                }
+                .label-ios,.label-md[floating]{
+                    margin-left: 10px;
+                }
+            }
+            .btn-signin{
+                background: linear-gradient(120deg,#43cea2,#185a9d,#43cea2);
+                background-size: 200%;
+                transition: 0.5s;
+                margin: 0;
+                width: 96%;
+                transform: translateX(10px);
+                padding: 0rem .50rem;
+                font-weight: 400;
+            }
+            .btn-signin:hover{
+                background-position: right;
+                transition: 0.5s;
+            }
+            .btn-signup{
+                background: transparent;
+                border: 1px solid whitesmoke;
+                margin-top: 10px;
+                width: 96%;
+                transform: translateX(10px);  
+                padding: 0rem .50rem;
+                font-weight: 400;              
+            }
+        }
+    }
+}

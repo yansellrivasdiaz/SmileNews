@@ -1,1 +1,23 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar color="secondColor" *ngIf="!isUserLoggedIn">
+            <ion-title class="title">Smile News</ion-title>
+        </ion-toolbar>
+        <ion-toolbar color="secondColor" class="user-toolbar" *ngIf="isUserLoggedIn">
+            <ion-avatar class="avartar">
+                <img [src]="avatar" (click)="ZoonAvatar(avatar)">
+                <p>{{(user!=null)?user.fullname:'Anonimous'}}</p>
+                <p>{{(user!=null)?user.email:'Anonimous'}}</p>
+            </ion-avatar> 
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button menuClose mode="ios" style="color: #185a9d;" ion-item *ngFor="let p of pages" (click)="openPage(p)" [hidden]="(p.auth == 'admin' && checkIsAdmin())">
+                <ion-icon *ngIf="p.icon" color="secondColor" [name]="p.icon" item-start></ion-icon>
+                {{p.title}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

@@ -14,3 +14,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.avartar{
+    margin-top:20px;
+    display: block;
+    width: 100%;
+    padding-left:5px;
+    line-height: 0.5;
+    color: whitesmoke;
+    img{
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding: 5px;
+        border:2px dashed rgba(255, 255, 255, 0.5);
+        width: 80px;
+        height: 80px;
+        box-shadow: 0 1px 5px black;
+    }
+}
+.close-btn{
+    position: absolute;
+    top: 16px;
+    right: 0px;
+}
