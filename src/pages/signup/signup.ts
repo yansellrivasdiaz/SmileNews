@@ -20,7 +20,7 @@ import {User} from '../../models/User'
 })
 export class SignupPage {
   signupForm: FormGroup;
-  public users:any = [];
+  public users:any = new Array();
   constructor(public events:Events,public viewCtrl: ViewController, public alertController: AlertController,public service: NewsServices,public navCtrl: NavController, public navParams: NavParams,public fb: FormBuilder) {
     this.cargar();
     this.signupForm = this.fb.group({
@@ -62,13 +62,14 @@ export class SignupPage {
 
   checkEmail(email:string){
     var user = this.users.find(user => user.email === email);
-    if(user !== null)return true;
+    if(user !== null && this.users.length > 0)return true;
     return false;
   }
 
   cargar() {
     this.service.getAllUsers().valueChanges().subscribe( (users)=>{
-      this.users = users;
+      if(users)this.users = users;
+      else this.users = new Array();
     });
   }
 
