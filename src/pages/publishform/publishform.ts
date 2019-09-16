@@ -5,6 +5,7 @@ import { NewsServices } from '../../services/news.services';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { UploadOptionsComponent } from '../../components/upload-options/upload-options';
 import { News } from '../../models/News';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the PublishformPage page.
@@ -23,7 +24,7 @@ export class PublishformPage {
   newsForm: FormGroup;
   image: any;
   posts:any;
-  constructor(public loadingCtrl: LoadingController,public popoverCtrl: PopoverController,private camera: Camera, public alertController: AlertController, public service: NewsServices, public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public fb: FormBuilder) {
+  constructor(public auth: AuthServiceProvider,public loadingCtrl: LoadingController,public popoverCtrl: PopoverController,private camera: Camera, public alertController: AlertController, public service: NewsServices, public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public fb: FormBuilder) {
     this.loader = this.loadingCtrl.create({
       content: "Please wait...",
       showBackdrop:true,
@@ -72,6 +73,7 @@ export class PublishformPage {
 
   updateNews() {
     var newsData = JSON.parse(JSON.stringify(this.newsForm.value));
+    newsData.author_id = this.auth.getUser().id;
     var news = new News(newsData);
     try{
       this.service.addUpNews(JSON.parse(JSON.stringify(news)));      
